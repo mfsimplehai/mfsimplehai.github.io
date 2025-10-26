@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mutual Funds Simple Hai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fff9;
+      color: #1b5e20;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0d7a33;
+    }
+    button {
+      background: #0d7a33;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #159945;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .calc-box {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px #c8e6c9;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mutual Funds Simple Hai</h1>
+  <p>Simple tools and insights to help you understand investing.</p>
+
+  <div class="calc-box">
+    <h2>SIP Calculator</h2>
+    <label>Monthly Investment (₹):</label>
+    <input id="sipAmount" type="number" value="10000"><br>
+    <label>Expected Return (p.a. %):</label>
+    <input id="sipReturn" type="number" value="12"><br>
+    <label>Investment Period (Years):</label>
+    <input id="sipYears" type="number" value="10"><br><br>
+    <button onclick="calcSIP()">Calculate</button>
+    <h3 id="sipResult"></h3>
+  </div>
+
+  <footer>
+    <p>© 2025 Mutual Funds Simple Hai | For education only. Consult a SEBI-registered advisor before investing.</p>
+  </footer>
+
+  <script>
+    function calcSIP() {
+      const P = parseFloat(document.getElementById("sipAmount").value);
+      const r = parseFloat(document.getElementById("sipReturn").value) / 100 / 12;
+      const n = parseFloat(document.getElementById("sipYears").value) * 12;
+      const FV = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+      document.getElementById("sipResult").innerText = 
+        "Future Value: ₹" + Math.round(FV).toLocaleString("en-IN");
+    }
+  </script>
+</body>
+</html>
